@@ -65,7 +65,7 @@ class _PieChartState extends State<PieChart>
     return Container(
         height: widget.size?.height,
         width: widget.size?.width,
-        color: Colors.grey,
+        color: Colors.transparent,
         child: Stack(children: [
           Padding(
               padding: EdgeInsets.all(MediaQuery.of(context).size.width >

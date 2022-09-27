@@ -1,7 +1,5 @@
 part of ui_kit;
 
-
-
 // ignore: must_be_immutable
 class PieChart extends StatefulWidget {
   final bool stacked;
@@ -21,6 +19,7 @@ class _PieChartState extends State<PieChart>
   late AnimationController _controller;
 
   static const int animationDuration = 1500;
+
   @override
   void initState() {
     super.initState();
@@ -31,8 +30,8 @@ class _PieChartState extends State<PieChart>
     );
     for (var x = 0; x < widget.sections.length; x++) {
       animations.add(Tween(
-          begin: (animationDuration / widget.sections.length) * x,
-          end: (animationDuration / widget.sections.length) * x + 1)
+              begin: (animationDuration / widget.sections.length) * x,
+              end: (animationDuration / widget.sections.length) * x + 1)
           .animate(_controller)
         ..addListener(() {
           setState(() {
@@ -69,7 +68,7 @@ class _PieChartState extends State<PieChart>
         child: Stack(children: [
           Padding(
               padding: EdgeInsets.all(MediaQuery.of(context).size.width >
-                  MediaQuery.of(context).size.height
+                      MediaQuery.of(context).size.height
                   ? (widget.size!.height / 2)
                   : (widget.size!.width / 8)),
               child: obj2Render),
@@ -78,7 +77,7 @@ class _PieChartState extends State<PieChart>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 }

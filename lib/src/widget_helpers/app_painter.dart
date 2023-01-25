@@ -1,4 +1,6 @@
 part of ui_kit;
+
+
 class PieChartPainter extends CustomPainter {
   List<double> sections;
   bool stacked;
@@ -41,13 +43,7 @@ class PieChartPainter extends CustomPainter {
     roundbuttAngle = 0;
     var position = -math.pi / 2 + gap + roundbuttAngle;
 
-    colors ??= [
-      Colors.green,
-      Colors.blue,
-      Colors.red,
-      Colors.purple,
-      Colors.pink,
-    ];
+    colors ??= defaultColors;
     // draw background container
     final Paint containerPaint = Paint()
       ..color = const Color.fromRGBO(0, 0, 0, 0.04)

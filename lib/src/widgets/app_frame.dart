@@ -1,2 +1,2 @@
-part of ui_kit;
+//part of ui_kit;
 

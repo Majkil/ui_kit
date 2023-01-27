@@ -1,4 +1,4 @@
-// //part of ui_kit;
+part of ui_kit;
 //
 // class ActionButton extends StatelessWidget {
 //   final String? text;
@@ -74,5 +74,118 @@
 //     );
 //   }
 // }
-//
-//
+
+class MomentaryNeumorphicButton extends StatefulWidget {
+  final Function buttonAction;
+  final bool indentedPush;
+  final Widget contents;
+  const MomentaryNeumorphicButton(
+      {Key? key,
+      required this.indentedPush,
+      required this.buttonAction,
+      required this.contents})
+      : super(key: key);
+
+  @override
+  State<MomentaryNeumorphicButton> createState() =>
+      _MomentaryNeumorphicButtonState();
+}
+
+class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
+  bool isPressed = true;
+
+  @override
+  Widget build(BuildContext context) {
+    double blurRadius = isPressed ? 5.0 : 30.0;
+    Offset distance = isPressed ? const Offset(5, 5) : const Offset(28, 28);
+    Color backgroundColor = const Color(0xFFE7ECEF);
+    Color shadow = const Color(0xFFA7A9AF);
+
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: Listener(
+        onPointerUp: (_) => setState(() {
+          isPressed = false;
+        }),
+        onPointerDown: (_) => setState(() {
+          isPressed = true;
+          widget.buttonAction();
+        }),
+        child: AnimatedContainer(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: backgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                      offset: distance,
+                      blurRadius: blurRadius,
+                      color: shadow,
+                      inset: widget.indentedPush ? isPressed : false),
+                  BoxShadow(
+                      offset: -distance,
+                      blurRadius: blurRadius,
+                      color: Colors.white,
+                      inset: widget.indentedPush ? isPressed : false),
+                ]),
+            duration: const Duration(milliseconds: 100),
+            child: widget.contents),
+      ),
+    );
+  }
+}
+
+class ToggleableNeumorphicButton extends StatefulWidget {
+  final Function buttonAction;
+  final Widget contents;
+
+  const ToggleableNeumorphicButton(
+      {Key? key, required this.buttonAction, required this.contents})
+      : super(key: key);
+
+  @override
+  State<ToggleableNeumorphicButton> createState() =>
+      _ToggleableNeumorphicButtonState();
+}
+
+class _ToggleableNeumorphicButtonState
+    extends State<ToggleableNeumorphicButton> {
+  bool isPressed = true;
+
+  @override
+  Widget build(BuildContext context) {
+    double blurRadius = isPressed ? 5.0 : 30.0;
+    Offset distance = isPressed ? const Offset(5, 5) : const Offset(28, 28);
+    Color backgroundColor = const Color(0xFFE7ECEF);
+    Color shadow = const Color(0xFFA7A9AF);
+
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            isPressed = !isPressed;
+          });
+          widget.buttonAction();
+        },
+        child: AnimatedContainer(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: backgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                      offset: distance,
+                      blurRadius: blurRadius,
+                      color: shadow,
+                      inset: isPressed),
+                  BoxShadow(
+                      offset: -distance,
+                      blurRadius: blurRadius,
+                      color: Colors.white,
+                      inset: isPressed),
+                ]),
+            duration: const Duration(milliseconds: 100),
+            child: widget.contents),
+      ),
+    );
+  }
+}

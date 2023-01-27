@@ -75,14 +75,19 @@ part of ui_kit;
 //   }
 // }
 
+
+var _default_offset = 13.0;
+var _default_blur_radius = 18.0;
 class MomentaryNeumorphicButton extends StatefulWidget {
   final Function buttonAction;
   final bool indentedPush;
   final Widget contents;
+  final Color backgroundColor;
   const MomentaryNeumorphicButton(
       {Key? key,
       required this.indentedPush,
       required this.buttonAction,
+      required this.backgroundColor,
       required this.contents})
       : super(key: key);
 
@@ -96,10 +101,10 @@ class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
 
   @override
   Widget build(BuildContext context) {
-    double blurRadius = isPressed ? 5.0 : 30.0;
-    Offset distance = isPressed ? const Offset(5, 5) : const Offset(28, 28);
-    Color backgroundColor = const Color(0xFFE7ECEF);
-    Color shadow = const Color(0xFFA7A9AF);
+    double blurRadius = isPressed ? 5.0 : _default_blur_radius;
+    Offset distance = isPressed ? const Offset(5, 5) : Offset(_default_offset, _default_offset);
+
+    Color shadow = darkenColor(widget.backgroundColor, v: 0.5);
 
     return Padding(
       padding: const EdgeInsets.all(30.0),
@@ -114,7 +119,7 @@ class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
         child: AnimatedContainer(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: backgroundColor,
+                color: widget.backgroundColor,
                 boxShadow: [
                   BoxShadow(
                       offset: distance,
@@ -124,7 +129,7 @@ class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
                   BoxShadow(
                       offset: -distance,
                       blurRadius: blurRadius,
-                      color: Colors.white,
+                      color: lightenColor(widget.backgroundColor,  v:0.15),
                       inset: widget.indentedPush ? isPressed : false),
                 ]),
             duration: const Duration(milliseconds: 100),
@@ -137,9 +142,13 @@ class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
 class ToggleableNeumorphicButton extends StatefulWidget {
   final Function buttonAction;
   final Widget contents;
+  final Color backgroundColor;
 
   const ToggleableNeumorphicButton(
-      {Key? key, required this.buttonAction, required this.contents})
+      {Key? key,
+      required this.buttonAction,
+      required this.contents,
+      required this.backgroundColor})
       : super(key: key);
 
   @override
@@ -153,10 +162,10 @@ class _ToggleableNeumorphicButtonState
 
   @override
   Widget build(BuildContext context) {
-    double blurRadius = isPressed ? 5.0 : 30.0;
-    Offset distance = isPressed ? const Offset(5, 5) : const Offset(28, 28);
-    Color backgroundColor = const Color(0xFFE7ECEF);
-    Color shadow = const Color(0xFFA7A9AF);
+    double blurRadius = isPressed ? 5.0 : _default_blur_radius;
+    Offset distance = isPressed ? const Offset(5, 5) :  Offset(_default_offset, _default_offset);
+
+    Color shadow = darkenColor(widget.backgroundColor, v: 0.5);
 
     return Padding(
       padding: const EdgeInsets.all(30.0),
@@ -170,7 +179,7 @@ class _ToggleableNeumorphicButtonState
         child: AnimatedContainer(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: backgroundColor,
+                color: widget.backgroundColor,
                 boxShadow: [
                   BoxShadow(
                       offset: distance,
@@ -180,7 +189,7 @@ class _ToggleableNeumorphicButtonState
                   BoxShadow(
                       offset: -distance,
                       blurRadius: blurRadius,
-                      color: Colors.white,
+                      color: lightenColor(widget.backgroundColor,v:0.15),
                       inset: isPressed),
                 ]),
             duration: const Duration(milliseconds: 100),

@@ -39,6 +39,7 @@ class GlassCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadius),
                     border:
                         Border.all(color: Colors.white.withOpacity(opacity)),
+                        
                     gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
@@ -78,17 +79,21 @@ class NeumorphicCard extends StatelessWidget {
     return Center(
         child: Container(
       decoration: BoxDecoration(
+          border: Border.all(
+              color: lightenColor(backgroundColor, v: 0.3),
+              width: 1,
+              style: BorderStyle.solid),
           borderRadius: BorderRadius.circular(borderRadius),
-          color: backgroundColor,
+          color:  backgroundColor,
           boxShadow: [
             BoxShadow(
                 offset: distance,
                 blurRadius: borderRadius,
-                color: darkenColor(backgroundColor, 0.5)),
+                color: darkenColor(backgroundColor, v: 0.5)),
             BoxShadow(
                 offset: -distance,
                 blurRadius: neushadows,
-                color: lightenColor(backgroundColor, 0.2)),
+                color: lightenColor(backgroundColor, v: 0.3)),
           ]),
       width: width,
       height: height,

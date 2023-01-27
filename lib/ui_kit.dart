@@ -2,7 +2,7 @@ library ui_kit;
 
 import 'dart:ui';
 
-import 'package:flutter/material.dart' hide BoxDecoration,BoxShadow;
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 
 import 'dart:math' as math;
@@ -13,6 +13,7 @@ part 'src/widgets/pie_chart.dart';
 part 'src/widgets/dashboard_gauges.dart';
 part 'src/widgets/buttons.dart';
 part 'src/widgets/cards.dart';
+part 'src/style/style_helpers.dart';
 part 'src/widget_helpers/app_painter.dart';
 part 'src/widget_helpers/math_helper.dart';
 part 'src/widget_helpers/size_helper.dart';

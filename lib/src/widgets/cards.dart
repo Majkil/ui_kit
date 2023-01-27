@@ -84,22 +84,11 @@ class NeumorphicCard extends StatelessWidget {
             BoxShadow(
                 offset: distance,
                 blurRadius: borderRadius,
-                color: Color.fromARGB(
-                    backgroundColor.alpha,
-                    (backgroundColor.red * 0.5).round(),
-                    (backgroundColor.green * 0.5).round(),
-                    (backgroundColor.blue * 0.5).round())),
+                color: darkenColor(backgroundColor, 0.5)),
             BoxShadow(
                 offset: -distance,
                 blurRadius: neushadows,
-                color: Color.fromARGB(
-                    backgroundColor.alpha,
-                    (backgroundColor.red +
-                        ((255 - backgroundColor.red) * 0.5).round()),
-                    (backgroundColor.green +
-                        ((255 - backgroundColor.green) * 0.5).round()),
-                    (backgroundColor.blue +
-                        ((255 - backgroundColor.blue) * 0.5).round()))),
+                color: lightenColor(backgroundColor, 0.2)),
           ]),
       width: width,
       height: height,

@@ -1,7 +1,7 @@
 name: ui_kit
 description: UI kit for flutter. Contains multiple reusable widgets
 version: 0.0.1
-homepage:
+
 
 environment:
   sdk: ">=2.16.2 <3.0.0"

@@ -24,7 +24,7 @@ class GlassCard extends StatelessWidget {
     return Center(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
-        child: Container(
+        child: SizedBox(
           width: width,
           height: height,
           child: Stack(

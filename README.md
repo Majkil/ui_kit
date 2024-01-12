@@ -1,5 +1,5 @@
 <!-- 
-This README describes the package. If you publish this package to pub.dev,
+This README describes the pacskage. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
 
 For information about how to write a good package README, see the guide for
@@ -11,7 +11,20 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-Work In Progress, Do not use for production.
+# Work In Progress, Do not use for production.
+#
+#
+
+A collection of various Flutter components 
+
+
+# Easy Usage:
+Use wrapper classes to call various components:
+
+eg. ` UiCards.glassCard(...args)`
+
+
+
 <!--
 ## Features
 

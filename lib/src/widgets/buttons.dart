@@ -76,8 +76,8 @@ part of ui_kit;
 // }
 
 
-var _default_offset = 13.0;
-var _default_blur_radius = 18.0;
+var _defaultOffset = 13.0;
+var _defaultBlurRadius = 18.0;
 class MomentaryNeumorphicButton extends StatefulWidget {
   final Function buttonAction;
   final bool indentedPush;
@@ -101,8 +101,8 @@ class _MomentaryNeumorphicButtonState extends State<MomentaryNeumorphicButton> {
 
   @override
   Widget build(BuildContext context) {
-    double blurRadius = isPressed ? 5.0 : _default_blur_radius;
-    Offset distance = isPressed ? const Offset(5, 5) : Offset(_default_offset, _default_offset);
+    double blurRadius = isPressed ? 5.0 : _defaultBlurRadius;
+    Offset distance = isPressed ? const Offset(5, 5) : Offset(_defaultOffset, _defaultOffset);
 
     Color shadow = darkenColor(widget.backgroundColor, v: 0.5);
 
@@ -162,8 +162,8 @@ class _ToggleableNeumorphicButtonState
 
   @override
   Widget build(BuildContext context) {
-    double blurRadius = isPressed ? 5.0 : _default_blur_radius;
-    Offset distance = isPressed ? const Offset(5, 5) :  Offset(_default_offset, _default_offset);
+    double blurRadius = isPressed ? 5.0 : _defaultBlurRadius;
+    Offset distance = isPressed ? const Offset(5, 5) :  Offset(_defaultOffset, _defaultOffset);
 
     Color shadow = darkenColor(widget.backgroundColor, v: 0.5);
 

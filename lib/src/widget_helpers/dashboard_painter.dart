@@ -29,7 +29,6 @@ class DashboardPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     double maxStroke = size.width / 10;
-    print(maxStroke);
     var emptyPaint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = maxStroke < 20 ? maxStroke : 20
@@ -85,7 +84,7 @@ class DashboardPainter extends CustomPainter {
     if (centreText != null) {
       TextSpan span = TextSpan(
           text: centreText,
-          style: TextStyle(fontSize: 30, color: Colors.black));
+          style: const TextStyle(fontSize: 30, color: Colors.black));
       TextPainter tp = TextPainter(textDirection: TextDirection.ltr)
         ..text = span
         ..textAlign = TextAlign.justify

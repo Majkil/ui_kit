@@ -9,7 +9,7 @@ class TransientScreen extends StatefulWidget {
   //Action to be exectute after duration has passed
   final Function executable;
 
-  TransientScreen({Key? key, required this.duration, required this.executable})
+  const TransientScreen({Key? key, required this.duration, required this.executable})
       : super(key: key);
 
   @override

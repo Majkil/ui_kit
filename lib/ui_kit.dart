@@ -18,5 +18,4 @@ part 'src/widget_helpers/app_painter.dart';
 part 'src/widget_helpers/math_helper.dart';
 part 'src/widget_helpers/size_helper.dart';
 part 'src/widget_helpers/dashboard_painter.dart';
-//part 'src/widgets/app_frame.dart';
 part 'src/setup/config.dart';

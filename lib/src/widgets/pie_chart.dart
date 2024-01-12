@@ -4,8 +4,14 @@ part of ui_kit;
 class PieChart extends StatefulWidget {
   final bool stacked;
   final List<double> sections;
+  final List<Color>? colors;
   Size? size;
-  PieChart({Key? key, required this.sections, this.stacked = false, this.size})
+  PieChart(
+      {Key? key,
+      required this.sections,
+      this.stacked = false,
+      this.size,
+      this.colors})
       : super(key: key);
 
   @override
@@ -56,6 +62,7 @@ class _PieChartState extends State<PieChart>
             ? MediaQuery.of(context).size.height
             : MediaQuery.of(context).size.width);
     var arcer = PieChartPainter(
+        colors: widget.colors,
         stacked: widget.stacked,
         sections: widget.sections,
         context: context,

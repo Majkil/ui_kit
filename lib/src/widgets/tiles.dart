@@ -516,13 +516,13 @@ class ListTileLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: RawMaterialButton(
-        child: Align(
+    return InkWell(
+      onTap: onTap,
+      child: ListTile(
+        title: Align(
           alignment: Alignment.centerLeft,
           child: Text(textContent, style: listTileTextStyle(context)),
         ),
-        onPressed: onTap,
       ),
     );
   }
